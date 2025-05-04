@@ -28,13 +28,6 @@
       pointer-events: none;
     }
 
-    .splash-screen video {
-      width: 100vw;
-      height: 100vh;
-      object-fit: cover;
-      display: none; /* Hide video initially */
-    }
-
     .enter-button {
       padding: 15px 30px;
       font-size: 24px;
@@ -918,12 +911,6 @@
   </style>
 </head>
 <body>
-  <div class="splash-screen">
-    <button id="enter-button" class="enter-button">Click to Enter</button>
-    <video id="logo-video" playsinline>
-      <source src="/logo.mp4" type="video/mp4">
-    </video>
-  </div>
   <div id="app" class="app desktop-view">
     <header class="header">
       <h1>Steel Cyclone Studios</h1>
@@ -1019,7 +1006,7 @@
                       <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
                       <polyline points="22,6 12,13 2,6"></polyline>
                     </svg>
-                    <span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="5f2c2b3a3a333c263c3330313a2c2b2a3b36302c1f38323e3633713c3032">[email&#160;protected]</a></span>
+                    <span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="5d2e293838313e243e313233382e29283934322e1d3a303c3431733e3230">[email&#160;protected]</a></span>
                   </div>
                   <div class="mb-3">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="me-2">
@@ -1315,47 +1302,6 @@
     </div>
   </div>
   <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const splash = document.querySelector('.splash-screen');
-    const video = document.getElementById('logo-video');
-    const enterButton = document.getElementById('enter-button');
-    
-    // When enter button is clicked
-    enterButton.addEventListener('click', function() {
-      // Hide the button
-      enterButton.classList.add('hidden');
-      // Show and play the video
-      video.style.display = 'block';
-      video.play();
-    });
-    
-    // When video ends, fade out splash screen
-    video.addEventListener('ended', function() {
-      splash.classList.add('fade-out');
-      // Remove splash screen after fade animation
-      setTimeout(() => {
-        splash.remove();
-      }, 500);
-    });
-    
-    // Fallback in case video fails to load
-    video.addEventListener('error', function() {
-      splash.remove();
-    });
-    
-    // Fallback timeout in case video takes too long
-    setTimeout(() => {
-      if(splash.parentElement) {
-        splash.classList.add('fade-out');
-        setTimeout(() => {
-          splash.remove();  
-        }, 500);
-      }
-    }, 10000); // Remove after 10 seconds if video hasn't ended
-  });
-  </script>
-
-  <script>
   new Vue({
     el: '#app',
     data: {
